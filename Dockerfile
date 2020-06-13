@@ -102,7 +102,8 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
     heroku version && \
     heroku plugins:install heroku-builds && \
     if [ ! -d ".ssh" ]; then  mkdir .ssh ; fi && \
-    chmod 700 ~/.ssh
+    chmod 700 ~/.ssh && \
+    if [ ! -d ".vnc" ]; then  mkdir .vnc ; fi
 #
 #RUN echo 1234 | sudo -S dnf install -y "Xfce Desktop"
 #RUN echo 1234 | sudo -S yum group install \
@@ -116,5 +117,11 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
 #
 #http://ns1.iranns.ir/jdk-11.0.7_linux-x64_bin.rpm
 #http://ns1.iranns.ir/jdk-8u251-linux-x64.rpm
-
-CMD /home/user/fix.sh & /home/user/launch-gui.sh & /home/user/launch.sh
+COPY heroku.yml /home/user/heroku.yml
+COPY xstartup /home/user/.vnc/xstartup
+COPY nginx.template /home/user/nginx.template
+COPY launch.sh /home/user/launch.sh
+COPY launch-gui.sh /home/user/launch-gui.sh
+COPY Dockerfile /home/user/Dockerfile
+RUN echo 1234 | sudo -S chown 1000:1000 heroku.yml .vnc/xstartup nginx.template launch.sh launch-gui.sh Dockerfile
+CMD /home/user/launch-gui.sh & /home/user/launch.sh
