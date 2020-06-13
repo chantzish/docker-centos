@@ -97,7 +97,9 @@ RUN echo 1234 | sudo -S yum -y install https://dl.fedoraproject.org/pub/epel/epe
     echo 1234 | sudo -S ln -s /usr/local/lib/heroku/bin/heroku /usr/local/bin/heroku && \
     cd $OLDPWD && \
     heroku version && \
-    heroku plugins:install heroku-builds
+    heroku plugins:install heroku-builds && \
+    if [ ! -d ".ssh" ]; then  mkdir .ssh ; fi && \
+    chmod 700 ~/.ssh
 #
 #RUN echo 1234 | sudo -S dnf install -y "Xfce Desktop"
 #RUN echo 1234 | sudo -S yum group install \
