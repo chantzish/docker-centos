@@ -17,7 +17,8 @@ printf "%s" "$HEROKU_LOGIN" > .netrc
 printf "%s" "$IDENTITY" > .ssh/id_rsa
 
 #xauth generate :0 . trusted
-xauth generate :1 . trusted
+#xauth generate :1 . trusted
+touch /home/user/.Xauthority
 vncserver -geometry 1536x864 :1
 
 cd gdrive
