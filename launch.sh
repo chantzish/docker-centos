@@ -1,10 +1,11 @@
 #!/bin/sh
 
 export DOLLAR='$'
-export HOME=/home/user
-export USER=`whoami`
 export LANG=en_US.UTF-8
+export HOME=/home/user
+export PATH=/home/user/.local/bin/:/usr/games:$PATH
 export JAVA_HOME=/usr/java/jdk1.8.0_251-amd64
+export USER=`whoami`
 envsubst < nginx.template > /etc/nginx/sites-enabled/default
 touch /opt/noVNC/`whoami`
 mkdir /opt/noVNC/user
