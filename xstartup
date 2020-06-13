@@ -1,0 +1,4 @@
+#!/bin/sh
+
+vncconfig -nowin &
+xfce4-session &
