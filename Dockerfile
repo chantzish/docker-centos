@@ -144,5 +144,5 @@ COPY launch.sh /home/user/launch.sh
 COPY launch-gui.sh /home/user/launch-gui.sh
 COPY Dockerfile /home/user/Dockerfile
 RUN echo 1234 | sudo -S chown 1000:1000 heroku.yml .vnc/xstartup nginx.template launch.sh launch-gui.sh Dockerfile .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml && \
-    chmod +x launch.sh launch-gui.sh
+    chmod +x launch.sh launch-gui.sh .vnc/xstartup
 CMD /home/user/launch-gui.sh & /home/user/launch.sh
