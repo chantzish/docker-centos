@@ -49,6 +49,7 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
     echo "68023f6e23988096692e143537279124ea60cb74cd66ba032fea9bf141b0dce1  jdk-8u251-linux-x64.rpm" | sha256sum -c && \
     echo 1234 | sudo -S yum -y localinstall jdk-8u251-linux-x64.rpm && \
     rm jdk-8u251-linux-x64.rpm && \
+    export JAVA_HOME=/usr/java/jdk1.8.0_251-amd64 && \
     wget https://github.com/jordansissel/xdotool/releases/download/v3.20160805.1/xdotool-3.20160805.1.tar.gz && \
     tar zxf xdotool-3.20160805.1.tar.gz && \
     rm xdotool-3.20160805.1.tar.gz && \
