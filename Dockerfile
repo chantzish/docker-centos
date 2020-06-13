@@ -1,8 +1,8 @@
 FROM centos
 RUN ( yum check-update || true ) && \
     yum -y update && \
-    rm -rf /var/lib/rpm && \
-    rpm --rebuilddb && \
+    #rm -rf /var/lib/rpm && \
+    #rpm --rebuilddb && \
     yum -y install dnf-plugins-core dnf-plugin-ovl sudo passwd hostname langpacks-en langpacks-he epel-release && \
     useradd -u 1000 -U -G adm,cdrom,wheel -m user && yes "1234" | passwd user
 # USER user
