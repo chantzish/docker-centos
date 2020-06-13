@@ -19,6 +19,8 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
     echo 1234 | sudo -S dnf install -y 'dnf-command(config-manager)' && \
     echo 1234 | sudo -S dnf config-manager --set-enabled PowerTools && \
     echo 1234 | sudo -S yum check-update ; echo 1234 | sudo -S yum -y update && \
+    ( echo 1234 | sudo -S yum -y update ) && \
+    echo 1234 | sudo -S yum -y install dnf-plugins-core sudo passwd hostname langpacks-en langpacks-he epel-release && \
     echo 1234 | sudo -S yum groupinstall -y "Xfce" && \
     echo 1234 | sudo -S yum -y install \
         gcc make binutils gcc-toolset-9-binutils libX11-devel xorg-x11-drv-evdev xorg-x11-drv-fbdev xorg-x11-proto-devel qt5-qtx11extras-devel libxkbcommon-x11-devel xorg-x11-xtrans-devel xorg-x11-xkb-utils-devel xorg-x11-drv-wacom-devel xorg-x11-drv-evdev-devel xorg-x11-drv-libinput-devel libNX_X11-devel xorg-x11-server-devel libSM-devel libICE-devel libXi-devel libXp-devel libXt-devel libXv-devel libXft-devel libXmu-devel libXpm-devel libXext-devel libXtst-devel libXrandr-devel libXfont2-devel libXrender-devel libXxf86vm-devel libfontenc-devel libxkbfile-devel libXinerama-devel libXxf86dga-devel libxkbcommon-devel libXxf86misc-devel libXScrnSaver-devel \
