@@ -105,9 +105,10 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
     if [ ! -d ".ssh" ]; then  mkdir .ssh ; fi && \
     chmod 700 ~/.ssh && \
     if [ ! -d ".vnc" ]; then  mkdir .vnc ; fi && \
-    sudo chmod -R 777 /etc/ssh && \
-    sudo chmod -R 777 /etc/nginx /usr/lib64/nginx/modules /usr/share/nginx /var/lib/nginx /var/log/nginx && \
-    sudo chmod 777 /etc/logrotate.d/nginx
+    sudo chown -R 1000:1000 /etc/ssh && \
+    sudo chmod -R 600 /etc/ssh/ssh_config.d/ && \
+    sudo chown -R 1000:1000 /etc/ssh /etc/nginx /usr/lib64/nginx/modules /usr/share/nginx /var/lib/nginx /var/log/nginx && \
+    sudo chown 1000:1000 /etc/logrotate.d/nginx
 #
 #RUN echo 1234 | sudo -S dnf install -y "Xfce Desktop"
 #RUN echo 1234 | sudo -S yum group install \
