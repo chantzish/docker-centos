@@ -103,16 +103,18 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
     cd $OLDPWD && \
     heroku version && \
     heroku plugins:install heroku-builds && \
-    if [ ! -d ".ssh" ]; then  mkdir .ssh ; fi && \
+    if [ ! -d ".ssh" ]; then mkdir .ssh; fi && \
     chmod 700 ~/.ssh && \
-    if [ ! -d ".vnc" ]; then  mkdir .vnc ; fi && \
+    if [ ! -d ".vnc" ]; then mkdir .vnc; fi && \
     echo 1234 | sudo -S chown -R 1000:1000 /etc/ssh && \
     echo 1234 | sudo -S chmod -R 600 /etc/ssh/ssh_config.d/ && \
     echo 1234 | sudo -S chown -R 1000:1000 /etc/ssh /etc/nginx /usr/lib64/nginx/modules /usr/share/nginx /var/lib/nginx /var/log/nginx && \
     echo 1234 | sudo -S chown 1000:1000 /etc/logrotate.d/nginx && \
     echo 1234 | sudo -S chmod a+w /run && \
-    if [ ! -d ".local/bin" ]; then  mkdir -p .local/bin ; fi && \
-    mkdir Downloads
+    if [ ! -d ".local/bin" ]; then mkdir -p .local/bin; fi && \
+    mkdir Downloads && \
+    if [ ! -d ".config/xfce4/xfconf/xfce-perchannel-xml" ]; then mkdir -p .config/xfce4/xfconf/xfce-perchannel-xml; fi && \
+    echo -e "WebBrowser=firefox\n" > .config/xfce4/helpers.rc
 #
 #RUN echo 1234 | sudo -S dnf install -y "Xfce Desktop"
 #RUN echo 1234 | sudo -S yum group install \
@@ -126,11 +128,12 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
 #
 #http://ns1.iranns.ir/jdk-11.0.7_linux-x64_bin.rpm
 #http://ns1.iranns.ir/jdk-8u251-linux-x64.rpm
+COPY xfce4-panel.xml /home/user/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
 COPY heroku.yml /home/user/heroku.yml
 COPY xstartup /home/user/.vnc/xstartup
 COPY nginx.template /home/user/nginx.template
 COPY launch.sh /home/user/launch.sh
 COPY launch-gui.sh /home/user/launch-gui.sh
 COPY Dockerfile /home/user/Dockerfile
-RUN echo 1234 | sudo -S chown 1000:1000 heroku.yml .vnc/xstartup nginx.template launch.sh launch-gui.sh Dockerfile
+RUN echo 1234 | sudo -S chown 1000:1000 heroku.yml .vnc/xstartup nginx.template launch.sh launch-gui.sh Dockerfile .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
 CMD /home/user/launch-gui.sh & /home/user/launch.sh
