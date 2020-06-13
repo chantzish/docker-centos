@@ -43,6 +43,7 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
         golang \
         python2-virtualenv \
         openssh-server \
+        yum-utils \
         &&\
     echo 1234 | sudo -S ln -sv pythpn2 /usr/bin/python && \
     wget https://oraclemirror.np.gy/jdk8/jdk-8u251-linux-x64.rpm && \
@@ -103,7 +104,10 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
     heroku plugins:install heroku-builds && \
     if [ ! -d ".ssh" ]; then  mkdir .ssh ; fi && \
     chmod 700 ~/.ssh && \
-    if [ ! -d ".vnc" ]; then  mkdir .vnc ; fi
+    if [ ! -d ".vnc" ]; then  mkdir .vnc ; fi && \
+    sudo chmod -R 777 /etc/ssh && \
+    sudo chmod -R 777 /etc/nginx /usr/lib64/nginx/modules /usr/share/nginx /var/lib/nginx /var/log/nginx && \
+    sudo chmod 777 /etc/logrotate.d/nginx
 #
 #RUN echo 1234 | sudo -S dnf install -y "Xfce Desktop"
 #RUN echo 1234 | sudo -S yum group install \
