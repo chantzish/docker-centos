@@ -16,6 +16,8 @@ printf "%s" "$VNC_PASS" | vncpasswd -f > /home/user/.vnc/passwd
 printf "%s" "$HEROKU_LOGIN" > .netrc
 printf "%s" "$IDENTITY" > .ssh/id_rsa
 
+#xauth generate :0 . trusted
+xauth generate :1 . trusted
 vncserver -geometry 1536x864 :1
 
 cd gdrive
