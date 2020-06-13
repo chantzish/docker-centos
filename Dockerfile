@@ -108,7 +108,8 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
     echo 1234 | sudo -S chown -R 1000:1000 /etc/ssh && \
     echo 1234 | sudo -S chmod -R 600 /etc/ssh/ssh_config.d/ && \
     echo 1234 | sudo -S chown -R 1000:1000 /etc/ssh /etc/nginx /usr/lib64/nginx/modules /usr/share/nginx /var/lib/nginx /var/log/nginx && \
-    echo 1234 | sudo -S chown 1000:1000 /etc/logrotate.d/nginx
+    echo 1234 | sudo -S chown 1000:1000 /etc/logrotate.d/nginx && \
+    echo 1234 | sudo -S chmod a+w /run
 #
 #RUN echo 1234 | sudo -S dnf install -y "Xfce Desktop"
 #RUN echo 1234 | sudo -S yum group install \
