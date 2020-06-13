@@ -6,7 +6,7 @@ export HOME=/home/user
 export PATH=/home/user/.local/bin/:/usr/games:$PATH
 export JAVA_HOME=/usr/java/jdk1.8.0_251-amd64
 export USER=`whoami`
-envsubst < nginx.template > /etc/nginx/sites-enabled/default
+envsubst < nginx.template > /etc/nginx/nginx.conf
 touch /opt/noVNC/`whoami`
 mkdir /opt/noVNC/user
 cd /opt/noVNC && ./utils/launch.sh --listen 6080 --vnc localhost:5901 &
