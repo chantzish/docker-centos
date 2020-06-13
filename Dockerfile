@@ -112,6 +112,7 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
     heroku plugins:install heroku-builds && \
     if [ ! -d ".ssh" ]; then mkdir .ssh; fi && \
     chmod 700 ~/.ssh && \
+    echo 1234 | sudo sed -i 's/UsePAM yes/UsePAM no/' /etc/ssh/sshd_config && \
     if [ ! -d ".vnc" ]; then mkdir .vnc; fi && \
     echo 1234 | sudo -S chown -R 1000:1000 /etc/ssh && \
     echo 1234 | sudo -S chmod -R 600 /etc/ssh/ssh_config.d/ && \
