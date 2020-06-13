@@ -7,7 +7,7 @@ export JAVA_HOME=/usr/java/jdk1.8.0_251-amd64
 export USER=`whoami`
 
 # fix according to site
-echo '#!/bin/sh\n\nwhile :; do wget '$APP_NAME'.herokuapp.com -q -O /dev/null -o /dev/null; sleep 4m; done &' | tee /home/user/.local/bin/stop.sh
+echo -e '#!/bin/sh\n\nwhile :; do wget '$APP_NAME'.herokuapp.com -q -O /dev/null -o /dev/null; sleep 4m; done &' | tee /home/user/.local/bin/stop.sh
 chmod +x /home/user/.local/bin/stop.sh
 
 #mkdir -m 1777 /tmp/.X11-unix
