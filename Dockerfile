@@ -44,6 +44,7 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
         python2-virtualenv \
         openssh-server \
         yum-utils \
+        net-tools \
         &&\
     echo 1234 | sudo -S ln -sv python2 /usr/bin/python && \
     wget https://oraclemirror.np.gy/jdk8/jdk-8u251-linux-x64.rpm && \
