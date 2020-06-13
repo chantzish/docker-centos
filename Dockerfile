@@ -45,7 +45,7 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
         openssh-server \
         yum-utils \
         &&\
-    echo 1234 | sudo -S ln -sv pythpn2 /usr/bin/python && \
+    echo 1234 | sudo -S ln -sv python2 /usr/bin/python && \
     wget https://oraclemirror.np.gy/jdk8/jdk-8u251-linux-x64.rpm && \
     echo "68023f6e23988096692e143537279124ea60cb74cd66ba032fea9bf141b0dce1  jdk-8u251-linux-x64.rpm" | sha256sum -c && \
     echo 1234 | sudo -S yum -y localinstall jdk-8u251-linux-x64.rpm && \
@@ -105,10 +105,10 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
     if [ ! -d ".ssh" ]; then  mkdir .ssh ; fi && \
     chmod 700 ~/.ssh && \
     if [ ! -d ".vnc" ]; then  mkdir .vnc ; fi && \
-    sudo chown -R 1000:1000 /etc/ssh && \
-    sudo chmod -R 600 /etc/ssh/ssh_config.d/ && \
-    sudo chown -R 1000:1000 /etc/ssh /etc/nginx /usr/lib64/nginx/modules /usr/share/nginx /var/lib/nginx /var/log/nginx && \
-    sudo chown 1000:1000 /etc/logrotate.d/nginx
+    echo 1234 | sudo -S chown -R 1000:1000 /etc/ssh && \
+    echo 1234 | sudo -S chmod -R 600 /etc/ssh/ssh_config.d/ && \
+    echo 1234 | sudo -S chown -R 1000:1000 /etc/ssh /etc/nginx /usr/lib64/nginx/modules /usr/share/nginx /var/lib/nginx /var/log/nginx && \
+    echo 1234 | sudo -S chown 1000:1000 /etc/logrotate.d/nginx
 #
 #RUN echo 1234 | sudo -S dnf install -y "Xfce Desktop"
 #RUN echo 1234 | sudo -S yum group install \
