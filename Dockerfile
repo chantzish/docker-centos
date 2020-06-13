@@ -49,6 +49,7 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
         openssh-server \
         yum-utils \
         net-tools \
+        xorg-x11-utils \
         &&\
     echo 1234 | sudo -S ln -sv python2 /usr/bin/python && \
     wget https://oraclemirror.np.gy/jdk8/jdk-8u251-linux-x64.rpm && \
