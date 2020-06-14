@@ -23,6 +23,7 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
     echo 1234 | sudo -S yum -y install dnf-plugins-core sudo passwd hostname langpacks-en langpacks-he epel-release && \
     echo 1234 | sudo -S yum groupinstall -y "Xfce" && \
     echo 1234 | sudo -S yum -y install \
+        # to compile xdotoll
         gcc make binutils gcc-toolset-9-binutils libX11-devel xorg-x11-drv-evdev xorg-x11-drv-fbdev xorg-x11-proto-devel qt5-qtx11extras-devel libxkbcommon-x11-devel xorg-x11-xtrans-devel xorg-x11-xkb-utils-devel xorg-x11-drv-wacom-devel xorg-x11-drv-evdev-devel xorg-x11-drv-libinput-devel libNX_X11-devel xorg-x11-server-devel libSM-devel libICE-devel libXi-devel libXp-devel libXt-devel libXv-devel libXft-devel libXmu-devel libXpm-devel libXext-devel libXtst-devel libXrandr-devel libXfont2-devel libXrender-devel libXxf86vm-devel libfontenc-devel libxkbfile-devel libXinerama-devel libXxf86dga-devel libxkbcommon-devel libXxf86misc-devel libXScrnSaver-devel \
         nginx \
         git \
@@ -52,6 +53,8 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
         net-tools \
         xorg-x11-utils \
         #coreutils \
+        # to install oracle database client
+        bc binutils elfutils-libelf elfutils-libelf-devel fontconfig-devel glibc glibc-devel ksh libaio libaio-devel libXrender libX11 libXau libXi libXtst libgcc libnsl librdmacm libstdc++ libstdc++-devel libxcb libibverbs make smartmontools sysstat libnsl2 libnsl2-devel \
         &&\
     echo 1234 | sudo -S ln -sv python2 /usr/bin/python && \
     wget https://oraclemirror.np.gy/jdk8/jdk-8u251-linux-x64.rpm && \
