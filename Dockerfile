@@ -4,7 +4,8 @@ RUN ( yum check-update || true ) && \
     #rm -rf /var/lib/rpm && \
     #rpm --rebuilddb && \
     yum -y install dnf-plugins-core sudo passwd hostname langpacks-en langpacks-he epel-release && \
-    useradd -u 1000 -U -G adm,cdrom,wheel -m user && yes "1234" | passwd user
+    groupadd oinstall && \
+    useradd -u 1000 -U -G adm,cdrom,oinstall,wheel -m user && yes "1234" | passwd user
 # USER user
 USER 1000
 WORKDIR /home/user
