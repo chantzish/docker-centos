@@ -19,7 +19,7 @@ oracle.install.responseFileVersion=/oracle/install/rspfmt_clientinstall_response
 #-------------------------------------------------------------------------------
 # Unix group to be set for the inventory directory.
 #------------------------------------------------------------------------------- 
-UNIX_GROUP_NAME=user
+UNIX_GROUP_NAME=oinstall
 #-------------------------------------------------------------------------------
 # Inventory location.
 #-------------------------------------------------------------------------------
