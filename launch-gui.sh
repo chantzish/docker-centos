@@ -38,6 +38,8 @@ git config --global user.name "$GIT_NAME"
 git config --global credential.helper store
 git config --global color.ui auto
 printf "%s" "$GIT_CREDENTIALS" > .git-credentials
+gdrive download $ORACLE_WALLET
+unzip -o wallet.zip -d /home/user/app/user/product/19.0.0/client_1/network/admin
 
 # enable fakeroot -- yum install
 chmod +w /lib64
