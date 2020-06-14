@@ -155,7 +155,7 @@ RUN echo 1234 | sudo -S chown 1000:1000 heroku.yml .vnc/xstartup nginx.template 
     wget https://archive.org/download/linux.-x-64-193000-client/LINUX.X64_193000_client.zip && \
     unzip LINUX.X64_193000_client.zip && \
     cd client && \
-    ./runInstaller -silent -ignorePrereqFailure -lenientInstallMode -showProgress -responseFile /home/user/docker-centos/oracle_client_response.rsp -invPtrLoc /home/user/docker-centos/oraInst.loc -ignoreSysPrereqs -waitForCompletion && \
+    ./runInstaller -silent -ignorePrereqFailure -lenientInstallMode -showProgress -responseFile /home/user/oracle_client_response.rsp -invPtrLoc /home/user/oraInst.loc -ignoreSysPrereqs -waitForCompletion && \
     cd .. && \
     rm LINUX.X64_193000_client.zip
 CMD /home/user/launch-gui.sh & /home/user/launch.sh
