@@ -153,7 +153,8 @@ RUN echo 1234 | sudo -S chown 1000:1000 heroku.yml .vnc/xstartup nginx.template 
     # .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml && \
     chmod +x launch.sh launch-gui.sh .vnc/xstartup && \
     export CV_ASSUME_DISTID=OEL7.6 && \
-    wget https://archive.org/download/linux.-x-64-193000-client/LINUX.X64_193000_client.zip && \
+    #wget https://archive.org/download/linux.-x-64-193000-client/LINUX.X64_193000_client.zip && \
+    wget https://www.dropbox.com/s/1dlj3lvb9dxlpgn/LINUX.X64_193000_client.zip?dl=1 -O LINUX.X64_193000_client.zip && \
     unzip LINUX.X64_193000_client.zip && \
     cd client && \
     ./runInstaller -silent -ignorePrereqFailure -lenientInstallMode -showProgress -responseFile /home/user/oracle_client_response.rsp -invPtrLoc /home/user/oraInst.loc -ignoreSysPrereqs -waitForCompletion && \
