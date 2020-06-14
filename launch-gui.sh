@@ -38,8 +38,10 @@ git config --global credential.helper store
 git config --global color.ui auto
 printf "%s" "$GIT_CREDENTIALS" > .git-credentials
 
-# enable fakeroot -- yum install
-chmod +w /lib64
-chmod +w /lib
-chmod -R +w /var
-chmod -R +w /usr
+# enable fakeroot -- yum install on heroku
+if [[ ! -z "${APP_NAME}" ]]; then
+  chmod +w /lib64
+  chmod +w /lib
+  chmod -R +w /var
+  chmod -R +w /usr
+fi
