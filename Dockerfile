@@ -157,7 +157,8 @@ RUN echo 1234 | sudo -S chown 1000:1000 heroku.yml .vnc/xstartup nginx.template 
     wget https://www.dropbox.com/s/1dlj3lvb9dxlpgn/LINUX.X64_193000_client.zip?dl=1 -O LINUX.X64_193000_client.zip && \
     unzip LINUX.X64_193000_client.zip && \
     cd client && \
-    ./runInstaller -silent -ignorePrereqFailure -lenientInstallMode -showProgress -responseFile /home/user/oracle_client_response.rsp -invPtrLoc /home/user/oraInst.loc -ignoreSysPrereqs -waitForCompletion && \
+    ( ./runInstaller -silent -ignorePrereqFailure -lenientInstallMode -showProgress -responseFile /home/user/oracle_client_response.rsp -invPtrLoc /home/user/oraInst.loc -ignoreSysPrereqs -waitForCompletion || true ) && \
+    sudo /home/user/app/oraInventory/orainstRoot.sh && \
     cd .. && \
     rm LINUX.X64_193000_client.zip
 CMD /home/user/launch-gui.sh & /home/user/launch.sh
