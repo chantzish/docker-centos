@@ -146,7 +146,16 @@ COPY nginx.template /home/user/nginx.template
 COPY launch.sh /home/user/launch.sh
 COPY launch-gui.sh /home/user/launch-gui.sh
 COPY Dockerfile /home/user/Dockerfile
-RUN echo 1234 | sudo -S chown 1000:1000 heroku.yml .vnc/xstartup nginx.template launch.sh launch-gui.sh Dockerfile && \
+COPY oracle_client_response.rsp /home/user/oracle_client_response.rsp
+COPY oraInst.loc /home/user/oraInst.loc
+RUN echo 1234 | sudo -S chown 1000:1000 heroku.yml .vnc/xstartup nginx.template launch.sh launch-gui.sh Dockerfile oraInst.loc oracle_client_response.rsp && \
     # .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml && \
-    chmod +x launch.sh launch-gui.sh .vnc/xstartup
+    chmod +x launch.sh launch-gui.sh .vnc/xstartup && \
+    export CV_ASSUME_DISTID=OEL7.6 && \
+    wget https://archive.org/download/linux.-x-64-193000-client/LINUX.X64_193000_client.zip && \
+    unzip LINUX.X64_193000_client.zip && \
+    cd client && \
+    ./runInstaller -silent -ignorePrereqFailure -lenientInstallMode -showProgress -responseFile /home/user/docker-centos/oracle_client_response.rsp -invPtrLoc /home/user/docker-centos/oraInst.loc -ignoreSysPrereqs -waitForCompletion && \
+    cd .. && \
+    rm LINUX.X64_193000_client.zip
 CMD /home/user/launch-gui.sh & /home/user/launch.sh
