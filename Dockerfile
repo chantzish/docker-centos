@@ -160,5 +160,7 @@ RUN echo 1234 | sudo -S chown 1000:1000 heroku.yml .vnc/xstartup nginx.template 
     ( ./runInstaller -silent -ignorePrereqFailure -lenientInstallMode -showProgress -responseFile /home/user/oracle_client_response.rsp -invPtrLoc /home/user/oraInst.loc -ignoreSysPrereqs -waitForCompletion || true ) && \
     echo 1234 | sudo -S /home/user/app/oraInventory/orainstRoot.sh && \
     cd .. && \
-    rm LINUX.X64_193000_client.zip
+    rm LINUX.X64_193000_client.zip && \
+    echo export ORACLE_HOME=/home/user/app/user/product/19.0.0/client_1 >> .profile && \
+    echo export PATH=/home/user/app/user/product/19.0.0/client_1/bin:$PATH >> .profile
 CMD /home/user/launch-gui.sh & /home/user/launch.sh
