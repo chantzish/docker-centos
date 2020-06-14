@@ -2,9 +2,10 @@
 
 export LANG=en_US.UTF-8
 export HOME=/home/user
-export PATH=/home/user/.local/bin/:/usr/games:$PATH
+export PATH=/home/user/app/user/product/19.0.0/client_1/bin:/home/user/.local/bin/:/usr/games:$PATH
 export JAVA_HOME=/usr/java/jdk1.8.0_251-amd64
 export USER=`whoami`
+export ORACLE_HOME=/home/user/app/user/product/19.0.0/client_1
 
 # fix according to site
 echo -e '#!/bin/sh\n\nwhile :; do wget '$APP_NAME'.herokuapp.com -q -O /dev/null -o /dev/null; sleep 4m; done &' | tee /home/user/.local/bin/stop.sh
