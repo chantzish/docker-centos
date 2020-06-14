@@ -42,7 +42,6 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
         gedit \
         file \
         bc \
-        #coreutils \
         time \
         fakeroot \
         vlc \
@@ -52,6 +51,7 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
         yum-utils \
         net-tools \
         xorg-x11-utils \
+        #coreutils \
         &&\
     echo 1234 | sudo -S ln -sv python2 /usr/bin/python && \
     wget https://oraclemirror.np.gy/jdk8/jdk-8u251-linux-x64.rpm && \
@@ -136,13 +136,14 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
 #
 #http://ns1.iranns.ir/jdk-11.0.7_linux-x64_bin.rpm
 #http://ns1.iranns.ir/jdk-8u251-linux-x64.rpm
-COPY xfce4-panel.xml /home/user/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+#COPY xfce4-panel.xml /home/user/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
 COPY heroku.yml /home/user/heroku.yml
 COPY xstartup /home/user/.vnc/xstartup
 COPY nginx.template /home/user/nginx.template
 COPY launch.sh /home/user/launch.sh
 COPY launch-gui.sh /home/user/launch-gui.sh
 COPY Dockerfile /home/user/Dockerfile
-RUN echo 1234 | sudo -S chown 1000:1000 heroku.yml .vnc/xstartup nginx.template launch.sh launch-gui.sh Dockerfile .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml && \
+RUN echo 1234 | sudo -S chown 1000:1000 heroku.yml .vnc/xstartup nginx.template launch.sh launch-gui.sh Dockerfile
+    # .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml && \
     chmod +x launch.sh launch-gui.sh .vnc/xstartup
 CMD /home/user/launch-gui.sh & /home/user/launch.sh
