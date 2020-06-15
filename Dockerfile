@@ -78,6 +78,7 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
     echo export HOME=/home/user >> .profile && \
     echo export PATH=/home/user/.local/bin/:/usr/games:$PATH >> .profile && \
     echo export JAVA_HOME=/usr/java/jdk1.8.0_251-amd64 >> .profile && \
+    #echo export MOZ_FORCE_DISABLE_E10S=true >> .profile && \
     echo 1234 | sudo -S sed -i 's/load-module module-udev-detect/#load-module module-udev-detect/' /etc/pulse/default.pa && \
     echo 1234 | sudo -S sed -i 's/load-module module-detect/#load-module module-detect/' /etc/pulse/default.pa && \
     echo 1234 | sudo -S sed -i 's/load-module module-bluetooth-discover/#load-module module-bluetooth-discover/' /etc/pulse/default.pa && \
@@ -148,5 +149,6 @@ COPY launch-gui.sh /home/user/launch-gui.sh
 COPY Dockerfile /home/user/Dockerfile
 RUN echo 1234 | sudo -S chown 1000:1000 heroku.yml .vnc/xstartup nginx.template launch.sh launch-gui.sh Dockerfile && \
     # .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml && \
-    chmod +x launch.sh launch-gui.sh .vnc/xstartup
+    chmod +x launch.sh launch-gui.sh .vnc/xstartup && \
+    echo 1234 | sudo -S dnf install -y https://yum.oracle.com/repo/OracleLinux/OL8/baseos/latest/x86_64/getPackage/oracle-database-preinstall-19c-1.0-1.el8.x86_64.rpm
 CMD /home/user/launch-gui.sh & /home/user/launch.sh

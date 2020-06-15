@@ -5,6 +5,10 @@ export HOME=/home/user
 export PATH=/home/user/.local/bin/:/usr/games:$PATH
 export JAVA_HOME=/usr/java/jdk1.8.0_251-amd64
 export USER=`whoami`
+if [[ ! -z "${APP_NAME}" ]]; then
+  export MOZ_FORCE_DISABLE_E10S=true
+  echo export MOZ_FORCE_DISABLE_E10S=true >> .profile
+fi
 
 # fix according to site
 echo -e '#!/bin/sh\n\nwhile :; do wget '$APP_NAME'.herokuapp.com -q -O /dev/null -o /dev/null; sleep 4m; done &' | tee /home/user/.local/bin/stop.sh
@@ -13,6 +17,7 @@ chmod +x /home/user/.local/bin/stop.sh
 #mkdir -m 1777 /tmp/.X11-unix
 #mkdir .vnc
 printf "%s" "$VNC_PASS" | vncpasswd -f > /home/user/.vnc/passwd
+chmod  600 /home/user/.vnc/passwd
 printf "%s" "$HEROKU_LOGIN" > .netrc
 printf "%s" "$IDENTITY" > .ssh/id_rsa
 

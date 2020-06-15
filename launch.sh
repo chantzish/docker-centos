@@ -6,6 +6,9 @@ export HOME=/home/user
 export PATH=/home/user/.local/bin/:/usr/games:$PATH
 export JAVA_HOME=/usr/java/jdk1.8.0_251-amd64
 export USER=`whoami`
+if [[ ! -z "${APP_NAME}" ]]; then
+  export MOZ_FORCE_DISABLE_E10S=true
+fi
 envsubst < nginx.template > /etc/nginx/nginx.conf
 touch /opt/noVNC/`whoami`
 mkdir /opt/noVNC/user
