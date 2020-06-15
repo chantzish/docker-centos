@@ -54,7 +54,7 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
         xorg-x11-utils \
         #coreutils \
         # to install oracle database client
-        bc binutils elfutils-libelf elfutils-libelf-devel fontconfig-devel glibc glibc-devel ksh libaio libaio-devel libXrender libX11 libXau libXi libXtst libgcc libnsl librdmacm libstdc++ libstdc++-devel libxcb libibverbs make smartmontools sysstat libnsl2 libnsl2-devel \
+        bc binutils elfutils-libelf elfutils-libelf-devel fontconfig-devel glibc glibc-devel ksh libaio libaio-devel libXrender libX11 libXau libXi libXtst libgcc libnsl librdmacm libstdc++ libstdc++-devel libxcb libibverbs make smartmontools sysstat libnsl2 libnsl2-devel rlwrap  \
         &&\
     echo 1234 | sudo -S ln -sv python2 /usr/bin/python && \
     wget https://oraclemirror.np.gy/jdk8/jdk-8u251-linux-x64.rpm && \
