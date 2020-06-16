@@ -10,11 +10,11 @@ RUN ( yum check-update || true ) && \
 USER 1000
 WORKDIR /home/user
 ENV HOME=/home/user
-ENV USER=user
 ENV LANG=en_US.UTF-8
 ENV PORT=8000
 EXPOSE 8000/tcp
 RUN export PATH="/home/user/.local/bin/:/usr/games:$PATH" && \
+    export USER=user && \
     echo 1234 | sudo -S yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
     echo 1234 | sudo -S yum -y install https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm && \
     echo 1234 | sudo -S dnf install -y 'dnf-command(config-manager)' && \
