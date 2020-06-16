@@ -5,7 +5,7 @@ export LANG=en_US.UTF-8
 export HOME=/home/user
 export JAVA_HOME=/usr/java/jdk1.8.0_251-amd64
 export USER=`whoami`
-export PATH=/home/user/app/user/product/19.0.0/client_1/bin:/home/user/.local/bin/:/usr/games:$PATH
+export PATH="/home/user/app/user/product/19.0.0/client_1/bin:/home/user/.local/bin/:/usr/games:$PATH"
 export ORACLE_HOME=/home/user/app/user/product/19.0.0/client_1
 
 envsubst < nginx.template > /etc/nginx/nginx.conf
