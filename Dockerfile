@@ -14,7 +14,7 @@ ENV USER=user
 ENV LANG=en_US.UTF-8
 ENV PORT=8000
 EXPOSE 8000/tcp
-RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
+RUN export PATH="/home/user/.local/bin/:/usr/games:$PATH" && \
     echo 1234 | sudo -S yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
     echo 1234 | sudo -S yum -y install https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm && \
     echo 1234 | sudo -S dnf install -y 'dnf-command(config-manager)' && \
@@ -77,7 +77,7 @@ RUN export PATH=/home/user/.local/bin/:/usr/games:$PATH && \
     sed -i 's/${WEBSOCKIFY} ${SSLONLY} --web ${WEB}/${WEBSOCKIFY} ${SSLONLY} --heartbeat=45 --web ${WEB}/' /opt/noVNC/utils/launch.sh && \
     echo export LANG=en_US.UTF-8 >> .profile && \
     echo export HOME=/home/user >> .profile && \
-    echo export PATH=/home/user/.local/bin/:/usr/games:$PATH >> .profile && \
+    echo export PATH=\"/home/user/.local/bin/:/usr/games:\$PATH\" >> .profile && \
     echo export JAVA_HOME=/usr/java/jdk1.8.0_251-amd64 >> .profile && \
     echo 1234 | sudo -S sed -i 's/load-module module-udev-detect/#load-module module-udev-detect/' /etc/pulse/default.pa && \
     echo 1234 | sudo -S sed -i 's/load-module module-detect/#load-module module-detect/' /etc/pulse/default.pa && \
